@@ -34,20 +34,21 @@ tableData.forEach(function(UFOReport) {
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("#form");
+// var form = d3.select("#form");
 
 // Create event handlers 
 button.on("click", runEnter);
 form.on("submit",runEnter);
 
+    tbody.html("");
 // Complete the event handler function for the form
-function runEnter() {
+// function runEnter() {
 
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
+  var inputElement = d3.select("#input");
 
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
@@ -70,7 +71,7 @@ function runEnter() {
 
   //   rebuild table using filter data
 
-    tbody.html("");
+        
 
     // Step 1: Loop Through `data` and console.log each UFO Report object
     filteredData.forEach(function(UFOReport) {
@@ -82,16 +83,15 @@ function runEnter() {
         Object.entries(UFOReport).forEach(function([key, value]) {
         console.log(key, value);
         // Step 4: Use d3 to append 1 cell per UFO report value (date, city, state, country, shape, duration, comments)
-        var cell = row.append("td");
+            var cell = row.append("td");
         // Step 5: Use d3 to update each cell's text with
         // UFO report values (date, city, state, country, shape, duration, comments)
-        cell.text(value);
+            cell.text(value);
+        });
     });
 
 
-});
 
-};
 
 // select dropdown for city, state,country, and shape
 
