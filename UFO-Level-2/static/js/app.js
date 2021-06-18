@@ -37,8 +37,8 @@ var button = d3.select("#filter-btn");
 // var form = d3.select("#form");
 
 // Create event handlers 
-button.on("click", runEnter);
-form.on("submit",runEnter);
+button.on("click", function(){
+// form.on("submit",runEnter);
 
     tbody.html("");
 // Complete the event handler function for the form
@@ -48,7 +48,7 @@ form.on("submit",runEnter);
   d3.event.preventDefault();
   
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#input");
+  var inputElement = d3.select("#form");
 
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
@@ -90,7 +90,7 @@ form.on("submit",runEnter);
         });
     });
 
-
+});
 
 
 // select dropdown for city, state,country, and shape
