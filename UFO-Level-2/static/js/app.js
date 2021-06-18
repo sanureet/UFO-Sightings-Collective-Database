@@ -55,9 +55,18 @@ function runEnter() {
   console.log(inputValue);
   
 
-  var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+  var filteredData = tableData.filter(tableData => tableData.datetime === inputValue ||
+                                                    tableData.city === inputValue ||
+                                                    tableData.state === inputValue ||
+                                                    tableData.country === inputValue ||
+                                                    tableData.shape === inputValue);
 
+
+                                                    
   console.log(filteredData);
+
+
+
 
   //   rebuild table using filter data
 
@@ -83,4 +92,16 @@ function runEnter() {
 });
 
 };
+
+// select dropdown for city, state,country, and shape
+
+// var cityDropdown = d3.select("city");
+// var stateDropdown = d3.select("state");
+// var countryDropdown = d3.select("country");
+// var shapeDropdown = d3.select("shape");
+
+// // assign buttons for city, state,country, and shape
+
+// var citybutton = d3.select(".btn-city");
+
 
