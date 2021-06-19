@@ -40,7 +40,10 @@ var button = d3.select("#filter-btn");
 button.on("click", function(){
 // form.on("submit",runEnter);
 
+    console.log('clearing table')
     tbody.html("");
+    console.log('table cleared')
+    
 // Complete the event handler function for the form
 // function runEnter() {
 
@@ -48,11 +51,12 @@ button.on("click", function(){
   d3.event.preventDefault();
   
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#form");
+  var inputElement = d3.select("#input-text");
 
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
+  console.log(inputElement);  
   console.log(inputValue);
   
 
@@ -74,13 +78,13 @@ button.on("click", function(){
         
 
     // Step 1: Loop Through `data` and console.log each UFO Report object
-    filteredData.forEach(function(UFOReport) {
-        console.log(UFOReport);
+    filteredData.forEach(function(tableData) {
+        console.log(tableData);
         // Step 2:  Use d3 to append one table row `tr` for each UFO Report object
         // Don't worry about adding cells or text yet, just try appending the `tr` elements.
         var row = tbody.append("tr");
         // Step 3:  Use `Object.entries` to console.log each UFO Report value
-        Object.entries(UFOReport).forEach(function([key, value]) {
+        Object.entries(tableData).forEach(function([key, value]) {
         console.log(key, value);
         // Step 4: Use d3 to append 1 cell per UFO report value (date, city, state, country, shape, duration, comments)
             var cell = row.append("td");
